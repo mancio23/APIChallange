@@ -1,6 +1,7 @@
 using RichardSzalay.MockHttp;
 using System;
 using System.IO;
+using System.Net;
 using System.Threading.Tasks;
 using TrueLayer.Connectivity.Challange.ShakespeareAPIAdapter;
 using Xunit;
@@ -23,7 +24,24 @@ namespace TrueLayer.Connectivity.Challange.UnitTests
 
             var response = await sut.GetTranslationAsync(description);
 
-            Assert.Equal(expected, response);
+            Assert.True(response.IsSuccess);
+            Assert.Equal(expected, response.Value);
+        }
+
+        [Theory]
+        [InlineData(HttpStatusCode.NotFound)]
+        [InlineData(HttpStatusCode.Forbidden)]
+        [InlineData(HttpStatusCode.BadRequest)]
+        public async Task SuccessFalseIfUnableToTranslate(HttpStatusCode httpStatusCode)
+        {
+            var description = "You gave Mr. Tim a hearty meal, but unfortunately what he ate made him die.";
+            var mockHttp = new MockHttpMessageHandler();
+            mockHttp.When($"{_baseUri}*").Respond(httpStatusCode);
+            var sut = new TranslatorClient(mockHttp.ToHttpClient());
+
+            var response = await sut.GetTranslationAsync(description);
+
+            Assert.False(response.IsSuccess);
         }
 
         private static string ReadEmbeddedResource(string resourceName)

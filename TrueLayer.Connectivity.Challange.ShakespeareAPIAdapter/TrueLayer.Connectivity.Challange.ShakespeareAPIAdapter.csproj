@@ -4,4 +4,8 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\TrueLayer.Connectivity.Challange.Utils\TrueLayer.Connectivity.Challange.Utils.csproj" />
+  </ItemGroup>
+
 </Project>

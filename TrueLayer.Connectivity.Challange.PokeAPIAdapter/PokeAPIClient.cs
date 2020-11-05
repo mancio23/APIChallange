@@ -33,8 +33,6 @@ namespace TrueLayer.Connectivity.Challange.PokeAPIAdapter
             var options = new JsonSerializerOptions
             {
                 PropertyNameCaseInsensitive = true,
-                IgnoreNullValues = true,
-                WriteIndented = true,
             };
             return JsonSerializer.Deserialize<Pokemon>(data, options);
         }

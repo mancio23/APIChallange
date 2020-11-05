@@ -33,7 +33,7 @@ namespace TrueLayer.Connectivity.Challange.UnitTests
         [InlineData(HttpStatusCode.NotFound)]
         [InlineData(HttpStatusCode.Forbidden)]
         [InlineData(HttpStatusCode.BadRequest)]
-        public async Task ShouldReturnSuccessFalseIfUnableToGetDescription(HttpStatusCode httpStatusCode)
+        public async Task SuccessFalseIfUnableToGetDescription(HttpStatusCode httpStatusCode)
         {
             var pokemonName = "notExits";
             var mockHttp = new MockHttpMessageHandler();
