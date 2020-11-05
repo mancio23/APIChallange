@@ -11,19 +11,20 @@ namespace TrueLayer.Connectivity.Challange.UnitTests
     {
         private readonly Uri _baseUri = new Uri("https://pokeapi.co/api/v2/pokemon-species/");
 
-        [Fact]
-        public async Task ShouldRetrievePokemonDescription()
+        [Theory]
+        [InlineData("ditto", "It can freely recombine its own cellular structure to\ntransform into other life-forms.")]
+        [InlineData("charizard", "Spits fire that\nis hot enough to\nmelt boulders.\fKnown to cause\nforest fires\nunintentionally.")]
+        [InlineData("pikachu", "When several of\nthese POKÈMON\ngather, their\felectricity could\nbuild and cause\nlightning storms.")]
+        public async Task ShouldRetrievePokemonDescription(string pokemonName, string expectedDescription)
         {
-            var pokemonName = "ditto";
-            var expected = "It can freely recombine its own cellular structure to\ntransform into other life-forms.";
-            var json = ReadEmbeddedResource("pokemon-species.json");
+            var json = ReadEmbeddedResource($"{pokemonName}-pokemon-species.json");
             var mockHttp = new MockHttpMessageHandler();
             mockHttp.When($"{_baseUri}{pokemonName}/").Respond("application/json", json);
             var sut = new PokeAPIClient(mockHttp.ToHttpClient());
 
             var response = await sut.GetPokemonDescriptionAsync(pokemonName);
 
-            Assert.Equal(expected, response);
+            Assert.Equal(expectedDescription, response);
         }
 
         private static string ReadEmbeddedResource(string resourceName)

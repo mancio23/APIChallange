@@ -7,11 +7,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Json\pokemon-species.json" />
+    <None Remove="Json\charizard-pokemon-species.json" />
+    <None Remove="Json\ditto-pokemon-species.json" />
+    <None Remove="Json\pikachu-pokemon-species.json" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Json\pokemon-species.json" />
+    <EmbeddedResource Include="Json\charizard-pokemon-species.json" />
+    <EmbeddedResource Include="Json\ditto-pokemon-species.json" />
+    <EmbeddedResource Include="Json\pikachu-pokemon-species.json" />
   </ItemGroup>
 
   <ItemGroup>
