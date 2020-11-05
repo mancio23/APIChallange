@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30621.155
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrueLayer.Connectivity.Challange.API", "TrueLayer.Connectivity.Challange.API\TrueLayer.Connectivity.Challange.API.csproj", "{625A2F32-7A7A-42D0-AB1E-4963B2F3F3EC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TrueLayer.Connectivity.Challange.API", "TrueLayer.Connectivity.Challange.API\TrueLayer.Connectivity.Challange.API.csproj", "{625A2F32-7A7A-42D0-AB1E-4963B2F3F3EC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrueLayer.Connectivity.Challange.UnitTests", "TrueLayer.Connectivity.Challange.UnitTests\TrueLayer.Connectivity.Challange.UnitTests.csproj", "{984EB488-7489-4A21-8D0E-7405DBB07910}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TrueLayer.Connectivity.Challange.UnitTests", "TrueLayer.Connectivity.Challange.UnitTests\TrueLayer.Connectivity.Challange.UnitTests.csproj", "{984EB488-7489-4A21-8D0E-7405DBB07910}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrueLayer.Connectivity.Challange.PokeAPIAdapter", "TrueLayer.Connectivity.Challange.PokeAPIAdapter\TrueLayer.Connectivity.Challange.PokeAPIAdapter.csproj", "{F392E86E-0D8C-45ED-83EA-5C73D7ED5C03}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TrueLayer.Connectivity.Challange.PokeAPIAdapter", "TrueLayer.Connectivity.Challange.PokeAPIAdapter\TrueLayer.Connectivity.Challange.PokeAPIAdapter.csproj", "{F392E86E-0D8C-45ED-83EA-5C73D7ED5C03}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrueLayer.Connectivity.Challange.Utils", "TrueLayer.Connectivity.Challange.Utils\TrueLayer.Connectivity.Challange.Utils.csproj", "{586DFE34-758C-4F42-9DA6-7A74697D09BC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{F392E86E-0D8C-45ED-83EA-5C73D7ED5C03}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F392E86E-0D8C-45ED-83EA-5C73D7ED5C03}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F392E86E-0D8C-45ED-83EA-5C73D7ED5C03}.Release|Any CPU.Build.0 = Release|Any CPU
+		{586DFE34-758C-4F42-9DA6-7A74697D09BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{586DFE34-758C-4F42-9DA6-7A74697D09BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{586DFE34-758C-4F42-9DA6-7A74697D09BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{586DFE34-758C-4F42-9DA6-7A74697D09BC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

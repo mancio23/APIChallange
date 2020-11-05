@@ -1,6 +1,7 @@
 using RichardSzalay.MockHttp;
 using System;
 using System.IO;
+using System.Net;
 using System.Threading.Tasks;
 using TrueLayer.Connectivity.Challange.PokeAPIAdapter;
 using Xunit;
@@ -24,7 +25,24 @@ namespace TrueLayer.Connectivity.Challange.UnitTests
 
             var response = await sut.GetPokemonDescriptionAsync(pokemonName);
 
-            Assert.Equal(expectedDescription, response);
+            Assert.True(response.IsSuccess);
+            Assert.Equal(expectedDescription, response.Value);
+        }
+
+        [Theory]
+        [InlineData(HttpStatusCode.NotFound)]
+        [InlineData(HttpStatusCode.Forbidden)]
+        [InlineData(HttpStatusCode.BadRequest)]
+        public async Task ShouldReturnSuccessFalseIfUnableToGetDescription(HttpStatusCode httpStatusCode)
+        {
+            var pokemonName = "notExits";
+            var mockHttp = new MockHttpMessageHandler();
+            mockHttp.When($"{_baseUri}{pokemonName}/").Respond(httpStatusCode);
+            var sut = new PokeAPIClient(mockHttp.ToHttpClient());
+
+            var response = await sut.GetPokemonDescriptionAsync(pokemonName);
+
+            Assert.False(response.IsSuccess);
         }
 
         private static string ReadEmbeddedResource(string resourceName)
