@@ -26,7 +26,7 @@ namespace TrueLayer.Connectivity.Challange.PokeAPIAdapter
         }
 
         private static string RetriveEngDescription(Pokemon pokemon) =>
-             pokemon.Flavor_text_entries.First(x => x.Language.Name == "en").Flavor_text;
+             pokemon.FlavorTextEntries.First(x => x.Language.Name == "en").FlavorText;
 
         private static Pokemon Deserialize(string data)
         {

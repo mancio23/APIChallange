@@ -1,10 +1,12 @@
 ﻿using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace TrueLayer.Connectivity.Challange.PokeAPIAdapter.Dto
 {
     public class Pokemon
     {
-        public IEnumerable<FlavorText> Flavor_text_entries { get; set; }
+        [JsonPropertyName("Flavor_text_entries")]
+        public IEnumerable<FlavorTextEntry> FlavorTextEntries { get; set; }
     }
 }
 

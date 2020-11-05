@@ -10,12 +10,14 @@
     <None Remove="Json\charizard-pokemon-species.json" />
     <None Remove="Json\ditto-pokemon-species.json" />
     <None Remove="Json\pikachu-pokemon-species.json" />
+    <None Remove="Json\translation.json" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="Json\charizard-pokemon-species.json" />
     <EmbeddedResource Include="Json\ditto-pokemon-species.json" />
     <EmbeddedResource Include="Json\pikachu-pokemon-species.json" />
+    <EmbeddedResource Include="Json\translation.json" />
   </ItemGroup>
 
   <ItemGroup>
@@ -28,6 +30,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\TrueLayer.Connectivity.Challange.PokeAPIAdapter\TrueLayer.Connectivity.Challange.PokeAPIAdapter.csproj" />
+    <ProjectReference Include="..\TrueLayer.Connectivity.Challange.ShakespeareAPIAdapter\TrueLayer.Connectivity.Challange.ShakespeareAPIAdapter.csproj" />
   </ItemGroup>
 
 </Project>

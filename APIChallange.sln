@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TrueLayer.Connectivity.Chal
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TrueLayer.Connectivity.Challange.PokeAPIAdapter", "TrueLayer.Connectivity.Challange.PokeAPIAdapter\TrueLayer.Connectivity.Challange.PokeAPIAdapter.csproj", "{F392E86E-0D8C-45ED-83EA-5C73D7ED5C03}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrueLayer.Connectivity.Challange.Utils", "TrueLayer.Connectivity.Challange.Utils\TrueLayer.Connectivity.Challange.Utils.csproj", "{586DFE34-758C-4F42-9DA6-7A74697D09BC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TrueLayer.Connectivity.Challange.Utils", "TrueLayer.Connectivity.Challange.Utils\TrueLayer.Connectivity.Challange.Utils.csproj", "{586DFE34-758C-4F42-9DA6-7A74697D09BC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrueLayer.Connectivity.Challange.ShakespeareAPIAdapter", "TrueLayer.Connectivity.Challange.ShakespeareAPIAdapter\TrueLayer.Connectivity.Challange.ShakespeareAPIAdapter.csproj", "{204D767B-219F-44C1-A8C2-FBEDA1F2CA20}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{586DFE34-758C-4F42-9DA6-7A74697D09BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{586DFE34-758C-4F42-9DA6-7A74697D09BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{586DFE34-758C-4F42-9DA6-7A74697D09BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{204D767B-219F-44C1-A8C2-FBEDA1F2CA20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{204D767B-219F-44C1-A8C2-FBEDA1F2CA20}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{204D767B-219F-44C1-A8C2-FBEDA1F2CA20}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{204D767B-219F-44C1-A8C2-FBEDA1F2CA20}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
