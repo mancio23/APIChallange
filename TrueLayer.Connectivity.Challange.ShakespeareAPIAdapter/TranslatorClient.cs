@@ -18,10 +18,12 @@ namespace TrueLayer.Connectivity.Challange.ShakespeareAPIAdapter
 
         public async Task<Result<string>> GetTranslationAsync(string text)
         {
-            var response = await _httpClient.GetAsync($"{_baseUri}?text={WebUtility.UrlEncode(text)}/");
-            if (!response.IsSuccessStatusCode) return Result<string>.Error(response.ReasonPhrase);
-            using HttpContent translateContent = response.Content;
-            string translateData = await translateContent.ReadAsStringAsync();
+            var response = await _httpClient.GetAsync($"{_baseUri}?text={WebUtility.UrlEncode(text.Sanitize())}/");
+            if (!response.IsSuccessStatusCode)
+            {
+                return Result<string>.Error(response.ReasonPhrase);
+            }
+            string translateData = await response.Content.ReadAsStringAsync();
             Translation translation = Deserialize(translateData);
             return Result<string>.Success(translation.Contents.Translated);
         }
