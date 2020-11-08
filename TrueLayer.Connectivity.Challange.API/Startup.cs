@@ -3,6 +3,9 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System.Net.Http;
+using TrueLayer.Connectivity.Challange.PokeAPIAdapter;
+using TrueLayer.Connectivity.Challange.ShakespeareAPIAdapter;
 
 namespace TrueLayer.Connectivity.Challange.API
 {
@@ -17,6 +20,10 @@ namespace TrueLayer.Connectivity.Challange.API
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSingleton<HttpClient>();
+            services.AddSingleton<IPokeAPIClient, PokeAPIClient>();
+            services.AddSingleton<ITranslatorClient, TranslatorClient>();
+
             services.AddControllers();
         }
 

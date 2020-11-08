@@ -8,7 +8,7 @@ using TrueLayer.Connectivity.Challange.Utils;
 
 namespace TrueLayer.Connectivity.Challange.ShakespeareAPIAdapter
 {
-    public class TranslatorClient
+    public class TranslatorClient : ITranslatorClient
     {
         private readonly HttpClient _httpClient;
         private readonly Uri _baseUri = new Uri("https://api.funtranslations.com/translate/shakespeare.json/");
@@ -28,13 +28,10 @@ namespace TrueLayer.Connectivity.Challange.ShakespeareAPIAdapter
             return Result<string>.Success(translation.Contents.Translated);
         }
 
-        private static Translation Deserialize(string translateData)
-        {
-            var options = new JsonSerializerOptions
+        private static Translation Deserialize(string translateData) =>
+            JsonSerializer.Deserialize<Translation>(translateData, new JsonSerializerOptions
             {
                 PropertyNameCaseInsensitive = true,
-            };
-            return JsonSerializer.Deserialize<Translation>(translateData, options);
-        }
+            });
     }
 }
