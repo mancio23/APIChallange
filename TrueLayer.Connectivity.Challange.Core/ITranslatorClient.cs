@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
-using TrueLayer.Connectivity.Challange.Utils;
+using TrueLayer.Connectivity.Challange.Core.Utils;
 
-namespace TrueLayer.Connectivity.Challange.ShakespeareAPIAdapter
+namespace TrueLayer.Connectivity.Challange.Core
 {
     public interface ITranslatorClient
     {

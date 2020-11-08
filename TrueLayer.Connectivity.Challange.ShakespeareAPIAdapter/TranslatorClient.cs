@@ -3,8 +3,9 @@ using System.Net;
 using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
+using TrueLayer.Connectivity.Challange.Core;
+using TrueLayer.Connectivity.Challange.Core.Utils;
 using TrueLayer.Connectivity.Challange.ShakespeareAPIAdapter.Dto;
-using TrueLayer.Connectivity.Challange.Utils;
 
 namespace TrueLayer.Connectivity.Challange.ShakespeareAPIAdapter
 {
@@ -25,7 +26,7 @@ namespace TrueLayer.Connectivity.Challange.ShakespeareAPIAdapter
             }
             string translateData = await response.Content.ReadAsStringAsync();
             Translation translation = Deserialize(translateData);
-            return Result<string>.Success(translation.Contents.Translated);
+            return Result<string>.Success(translation.Contents.Translated.RemoveLastSlash());
         }
 
         private static Translation Deserialize(string translateData) =>

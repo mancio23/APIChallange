@@ -3,8 +3,9 @@ using System.Linq;
 using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
+using TrueLayer.Connectivity.Challange.Core;
+using TrueLayer.Connectivity.Challange.Core.Utils;
 using TrueLayer.Connectivity.Challange.PokeAPIAdapter.Dto;
-using TrueLayer.Connectivity.Challange.Utils;
 
 namespace TrueLayer.Connectivity.Challange.PokeAPIAdapter
 {

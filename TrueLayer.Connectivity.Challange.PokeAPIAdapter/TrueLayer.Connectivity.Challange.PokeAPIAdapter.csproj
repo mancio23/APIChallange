@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\TrueLayer.Connectivity.Challange.Utils\TrueLayer.Connectivity.Challange.Utils.csproj" />
+    <ProjectReference Include="..\TrueLayer.Connectivity.Challange.Core\TrueLayer.Connectivity.Challange.Core.csproj" />
   </ItemGroup>
 
 </Project>

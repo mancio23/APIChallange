@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using TrueLayer.Connectivity.Challange.ShakespeareAPIAdapter;
+﻿using TrueLayer.Connectivity.Challange.ShakespeareAPIAdapter;
 using Xunit;
 
 namespace TrueLayer.Connectivity.Challange.UnitTests
@@ -18,5 +15,17 @@ namespace TrueLayer.Connectivity.Challange.UnitTests
 
             Assert.Equal(expected, sanitizedText);
         }
+
+        [Fact]
+        public void ShouldRemoveLastSlash()
+        {
+            var text = "You gave Mr. Tim a hearty meal, but unfortunately what he ate made him die./";
+            var expected = "You gave Mr. Tim a hearty meal, but unfortunately what he ate made him die.";
+
+            var processedText = text.RemoveLastSlash();
+
+            Assert.Equal(expected, processedText);
+        }
+
     }
 }

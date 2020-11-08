@@ -10,9 +10,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\TrueLayer.Connectivity.Challange.Core\TrueLayer.Connectivity.Challange.Core.csproj" />
     <ProjectReference Include="..\TrueLayer.Connectivity.Challange.PokeAPIAdapter\TrueLayer.Connectivity.Challange.PokeAPIAdapter.csproj" />
     <ProjectReference Include="..\TrueLayer.Connectivity.Challange.ShakespeareAPIAdapter\TrueLayer.Connectivity.Challange.ShakespeareAPIAdapter.csproj" />
-    <ProjectReference Include="..\TrueLayer.Connectivity.Challange.Utils\TrueLayer.Connectivity.Challange.Utils.csproj" />
   </ItemGroup>
 
 
