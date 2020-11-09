@@ -25,7 +25,11 @@ When the Container is running use an HTTP client to invoke the api.
 
 Using httpie:
 ``` 
-http http://localhost:{yourPortNumber}/pokemon/charizard
+http http://localhost:{yourPortNumber}/pokemon/{pokemonName}
+```
+Usage example:
+``` 
+http http://localhost:8080/pokemon/charizard
 ```
 
 # Build
