@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using System;
 using System.Threading.Tasks;
 using TrueLayer.Connectivity.Challange.API.Model;
 using TrueLayer.Connectivity.Challange.Core;
@@ -22,15 +24,24 @@ namespace TrueLayer.Connectivity.Challange.API.Controllers
         [HttpGet("{name}")]
         public async Task<ActionResult<Pokemon>> GetAsync(string name)
         {
-            var description = await _pokemonRetriever.GetDescriptionAsync(name);
-            if (!description.IsSuccess)
+            try
             {
-                var message = $"PokemonRetrieverError pokemonName = {name}, error = {description}";
-                _logger.LogError(message);
-                return NotFound(message);
-            }
+                var description = await _pokemonRetriever.GetDescriptionAsync(name);
+                if (!description.IsSuccess)
+                {
+                    var message = $"PokemonControllerInfo pokemonName = {name}, message = {description}";
+                    _logger.LogInformation(message);
+                    return NotFound(message);
+                }
 
-            return Ok(new Pokemon() { Name = name, Description = description.Value });
+                return Ok(new Pokemon() { Name = name, Description = description.Value });
+            }
+            catch(Exception ex)
+            {
+                var message = $"PokemonControllerError pokemonName = {name}, message = {ex.Message}";
+                _logger.LogError(message);
+                return StatusCode(StatusCodes.Status500InternalServerError);
+            }
         }
     }
 }

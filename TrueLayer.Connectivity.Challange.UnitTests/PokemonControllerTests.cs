@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Moq;
 using RichardSzalay.MockHttp;
+using System;
 using System.Threading.Tasks;
 using TrueLayer.Connectivity.Challange.API.Controllers;
 using TrueLayer.Connectivity.Challange.API.Model;
@@ -46,6 +47,22 @@ namespace TrueLayer.Connectivity.Challange.UnitTests
             var result = (ObjectResult)response.Result;
 
             Assert.Equal(StatusCodes.Status404NotFound, result.StatusCode.Value);
+        }
+
+        [Fact]
+        public async Task ShouldReturnInternalError()
+        {
+            var pokemonName = "ditto";
+            var log = new Mock<ILogger<string>>();
+            var mockHttp = new MockHttpMessageHandler();
+            var pokemonRetriever = new Mock<IPokemonRetriever>();
+            pokemonRetriever.Setup(x => x.GetDescriptionAsync(It.IsAny<string>())).Throws(new Exception());
+            var controller = new PokemonController(pokemonRetriever.Object, log.Object);
+
+            var response = await controller.GetAsync(pokemonName);
+            var result = (StatusCodeResult)response.Result;
+
+            Assert.Equal(StatusCodes.Status500InternalServerError, result.StatusCode);
         }
     }
 }
