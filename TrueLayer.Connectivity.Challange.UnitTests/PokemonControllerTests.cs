@@ -26,7 +26,7 @@ namespace TrueLayer.Connectivity.Challange.UnitTests
 
             var response = await controller.GetAsync(pokemonName);
             var result = (ObjectResult)response.Result;
-            var pokemonResult = (PokemonResult)result.Value;
+            var pokemonResult = (Pokemon)result.Value;
 
             Assert.Equal(pokemonName, pokemonResult.Name);
             Assert.Equal(expectedDescription, pokemonResult.Description);

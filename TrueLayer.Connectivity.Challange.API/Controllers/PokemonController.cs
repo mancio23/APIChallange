@@ -20,7 +20,7 @@ namespace TrueLayer.Connectivity.Challange.API.Controllers
         }
 
         [HttpGet("{name}")]
-        public async Task<ActionResult<PokemonResult>> GetAsync(string name)
+        public async Task<ActionResult<Pokemon>> GetAsync(string name)
         {
             var description = await _pokemonRetriever.GetDescriptionAsync(name);
             if (!description.IsSuccess)
@@ -30,7 +30,7 @@ namespace TrueLayer.Connectivity.Challange.API.Controllers
                 return NotFound(message);
             }
 
-            return Ok(new PokemonResult() { Name = name, Description = description.Value });
+            return Ok(new Pokemon() { Name = name, Description = description.Value });
         }
     }
 }
